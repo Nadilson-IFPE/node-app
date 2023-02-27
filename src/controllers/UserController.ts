@@ -19,7 +19,7 @@ export class UserController {
     getAllUsers = (request: Request, response: Response) => {
         const userService = new UserService()
 
-        const users = userService.getAllUsers
+        const users = userService.getAllUsers()
 
         return response.status(200).json(users)
     }
