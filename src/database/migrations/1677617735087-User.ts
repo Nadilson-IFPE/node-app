@@ -29,12 +29,6 @@ export class User1677574517950 implements MigrationInterface {
                         type: 'string',
                         isNullable: false
                     },
-                    {
-                        name: 'balance',
-                        type: 'number',
-                        default: 0,
-                        isNullable: false
-                    }
                 ]
             })
         )
