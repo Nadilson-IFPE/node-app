@@ -1,7 +1,7 @@
 
 import { UserService } from '../services/UserService';
 import { UserController } from './UserController';
-import { makeMockResponse } from '../__mocks__/makeMockResponse.mock';
+import { makeMockResponse } from '../__mocks__/makeMockResponse.mock'
 import { Request } from 'express';
 
 
