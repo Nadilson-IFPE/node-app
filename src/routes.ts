@@ -13,4 +13,4 @@ router.post('/user', userController.createUser)
 router.get('/user', userController.getUser)
 router.delete('/user', userController.deleteUser)
 
-router.get('/login', loginController.login)
+router.post('/login', loginController.login)

@@ -42,8 +42,16 @@ describe('UserService', () => {
 
     it('Deve retornar um token do usuário', async () => {
         jest.spyOn(userService, 'getAuthenticatedUser').mockImplementation(() => Promise.resolve(mockUser))
+        jest.spyOn(jwt, 'sign').mockImplementation(() => 'token')
         const token = await userService.getToken('maria@test.com', '123456')
-        expect(token).toBe('123456')
+        expect(token).toBe('token')
     })
+
+
+    it('Deve retornar um erro caso não encontre um usuário', async () => {
+        jest.spyOn(userService, 'getAuthenticatedUser').mockImplementation(() => Promise.resolve(null))
+        await expect(userService.getToken('nadilson@diobank.com', '123456')).rejects.toThrowError(new Error('E-mail ou senha inválidos'))
+    })
+
 
 })
