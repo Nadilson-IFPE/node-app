@@ -24,8 +24,17 @@ export class UserController {
         return response.status(201).json({ message: 'Usuário criado' })
     }
 
-    getUser = (request: Request, response: Response) => {
-        return response.status(200)
+    getUser = async (request: Request, response: Response) => {
+        const { userId } = request.params
+        const user = await this.userService.getUser(userId)
+        // Ñão pode revelar a senha do usuário na response
+        // Modo errado (exibe a senha): return response.status(200).json(user)
+        // Modo correto (exclui a senha dos dados retornados pelo response):
+        return response.status(200).json({
+            userId: user?.user_id,
+            name: user?.name,
+            email: user?.email
+        })
     }
 
     deleteUser = (request: Request, response: Response) => {
