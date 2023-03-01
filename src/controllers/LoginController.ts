@@ -6,7 +6,7 @@ const user = {
     user_id: '123456',
     name: 'Nadilson',
     email: 'nadilson@diobank.com',
-    password: 'password'
+    password: '123456'
 }
 
 
